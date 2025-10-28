@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+
+    <style >
+        /* Apply collapse to the table itself and style cells inside #table2 */
+        div#table2 table {
+            border-collapse: collapse;
+        }
+        div#table2 th,
+        div#table2 td {
+            text-align: center;
+            padding: 10px;
+        }
+        /* Alternate row background for rows inside #table2 */
+        div#table3 tr:nth-child(even) {
+            background-color: lightgray;
+        }
+        
+    </style>
+<body>
+
+<table border="3" style="width: 80%;">
+    <tr>
+        <th colspan="2">Name</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>43</td>
+    </tr>
+    <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>57</td>
+    </tr>
+</table>
+
+<br><br><br>
+
+<div id="table2">
+<table border="3" style="width: 80%;">
+    <tr>
+        <th>Name</th>
+        <td>Jill</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Phone</th>
+        <td>534-123</td>
+    </tr>
+
+    <tr>
+        <td>827-237</td>
+    </tr>
+</table>
+</div>
+ <!-- style="background-color: aqua;" -->
+<br><br><br>
+
+ <div id="table3">
+<table border="3" style="width: 80%;">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    <tr>
+        <th rowspan="2">Phone</th>
+        <td>534-123</td>
+    </tr>
+
+    <tr>
+        <td>827-237</td>
+    </tr>
+</table>
+</div>
+</body>
+
+
+</html>

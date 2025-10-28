@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lab 3 — Form & Table Demo</title>
+
+  <!-- Simple, self-contained styles -->
+  <style>
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --muted: #6b7280;
+      --glass: rgba(37,99,235,0.08);
+      --radius: 10px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg,#eef2ff 0%,var(--bg) 100%);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 36px auto;
+      padding: 24px;
+    }
+
+    header {
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    header h1{
+      margin:0;
+      font-size:1.25rem;
+      letter-spacing:-0.02em;
+    }
+
+    header p{ margin:0; color:var(--muted); font-size:.95rem; }
+
+    .grid {
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:20px;
+    }
+
+    /* Card */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 0 6px 20px rgba(15,23,42,0.06);
+      padding:18px;
+      border:1px solid rgba(15,23,42,0.04);
+    }
+
+    /* Table styling */
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.95rem;
+      margin-bottom:8px;
+    }
+    table caption{
+      text-align:left;
+      font-weight:600;
+      padding-bottom:8px;
+      color:var(--muted);
+    }
+    thead th{
+      background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(37,99,235,0.02));
+      padding:10px 12px;
+      text-align:left;
+      font-weight:700;
+      color:#0f172a;
+      border-bottom:1px solid rgba(15,23,42,0.06);
+    }
+    tbody td{
+      padding:10px 12px;
+      border-bottom:1px dashed rgba(15,23,42,0.04);
+    }
+    tbody tr:nth-child(odd) td{
+      background: #fbfbfd;
+    }
+    tbody tr:hover td{
+      background:var(--glass);
+    }
+
+    /* Form */
+    form .row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    label{
+      display:block;
+      font-size:0.9rem;
+      color:#0f172a;
+      margin-bottom:6px;
+    }
+    input[type="text"],
+    input[type="password"],
+    select{
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid rgba(15,23,42,0.08);
+      background:#fff;
+      box-sizing:border-box;
+      font-size:0.95rem;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:8px;
+    }
+    .radio-group{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:6px;
+    }
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+      align-items:center;
+    }
+    button, input[type="submit"]{
+      background:var(--accent);
+      color:white;
+      padding:10px 14px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+    }
+    button.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(37,99,235,0.14);
+    }
+
+    .hint{
+      font-size:0.85rem;
+      color:var(--muted);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width:920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <h1>Lab 3 — Table & Form</h1>
+        <p class="hint">A small responsive demo with accessible form controls and a styled table.</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Left: table demo -->
+      <section class="card" aria-labelledby="table-demo">
+        <h2 id="table-demo" style="margin-top:0;font-size:1rem">Sample Data Table</h2>
+
+        <table aria-describedby="table-desc">
+          <caption>Example rows demonstrating colspan/rowspan and layout</caption>
+          <colgroup>
+            <col style="width:60%">
+            <col style="width:40%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="2">Big Header</th>
+            </tr>
+            <tr>
+              <th>Header 1</th>
+              <th>Header 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Row 1, Cell 1</td>
+              <td rowspan="2">Row 1 &amp; 2, Cell 2 (rowspan=2)</td>
+            </tr>
+            <tr>
+              <td>Row 2, Cell 1</td>
+            </tr>
+            <tr>
+              <td>Row 3, Cell 1</td>
+              <td>Row 3, Cell 2</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="hint" id="table-desc">This table uses a caption and proper table groups. Hover a row to highlight it.</p>
+      </section>
+
+      <!-- Right: form demo -->
+      <aside class="card" aria-labelledby="form-demo">
+        <h2 id="form-demo" style="margin-top:0;font-size:1rem">Login / Registration</h2>
+
+        <form id="demoForm" autocomplete="on" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="e.g. alice" required minlength="3" />
+            </div>
+
+            <div>
+              <label for="password">Password</label>
+              <div style="display:flex;gap:8px; align-items:center;">
+                <input id="password" name="password" type="password" placeholder="Enter a password" required minlength="6" />
+                <button type="button" id="togglePwd" aria-pressed="false" class="secondary" title="Show password">Show</button>
+              </div>
+              <p class="hint" style="margin:6px 0 0 0">Minimum 6 characters.</p>
+            </div>
+
+            <div>
+              <label>Gender</label>
+              <div role="radiogroup" aria-labelledby="gender-label" class="radio-group">
+                <label style="display:flex;gap:6px;align-items:center;">
+                  <input type="radio" name="gender" value="male" required /> <span>Male</span>
+                </label>
+                <label style="display:flex;gap:6px;align-items:center;">
+                  <input type="radio" name="gender" value="female" /> <span>Female</span>
+                </label>
+                <label style="display:flex;gap:6px;align-items:center;">
+                  <input type="radio" name="gender" value="other" /> <span>Other</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="country">Country</label>
+              <select id="country" name="country" required>
+                <option value="">Select your country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="GB">United Kingdom</option>
+                <option value="AU">Australia</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="actions" style="grid-column:1/-1">
+              <input type="submit" value="Submit" />
+              <button type="button" id="resetBtn" class="secondary">Reset</button>
+            </div>
+
+            <div id="result" style="grid-column:1/-1;display:none;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.03)"></div>
+          </div>
+        </form>
+      </aside>
+    </main>
+
+    <footer>
+      <p>Make sure to serve this file with a local server for best compatibility, or open it directly in your browser.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Small interactive enhancements
+    (function(){
+      const form = document.getElementById('demoForm');
+      const result = document.getElementById('result');
+      const resetBtn = document.getElementById('resetBtn');
+      const togglePwd = document.getElementById('togglePwd');
+      const password = document.getElementById('password');
+
+      togglePwd.addEventListener('click', () => {
+        const isHidden = password.type === 'password';
+        password.type = isHidden ? 'text' : 'password';
+        togglePwd.textContent = isHidden ? 'Hide' : 'Show';
+        togglePwd.setAttribute('aria-pressed', String(!isHidden));
+      });
+
+      resetBtn.addEventListener('click', () => {
+        form.reset();
+        result.style.display = 'none';
+      });
+
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+
+        // simple built-in validation check
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const obj = Object.fromEntries(data.entries());
+
+        // show a small summary (do not show actual password in production)
+        result.innerHTML = `
+          <strong>Form submitted (client-side preview)</strong>
+          <div style="margin-top:8px;color:var(--muted)">
+            Username: ${escapeHtml(obj.username || '')} <br />
+            Gender: ${escapeHtml(obj.gender || '—')} <br />
+            Country: ${escapeHtml(obj.country || '—')}
+          </div>
+          <div style="margin-top:8px;font-size:.85rem;color:${obj.password ? '#16a34a' : '#ef4444'}">
+            ${obj.password ? 'Password provided' : 'Password missing'}
+          </div>
+        `;
+        result.style.display = 'block';
+        result.scrollIntoView({behavior:'smooth'});
+      });
+
+      // small HTML escape to avoid accidental injection in preview
+      function escapeHtml(s){
+        return String(s)
+          .replaceAll('&','&amp;')
+          .replaceAll('<','&lt;')
+          .replaceAll('>','&gt;')
+          .replaceAll('"','&quot;')
+          .replaceAll("'",'&#39;');
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* DUSK's Style System */
+/* Minimalist. Dark. Purposeful. */
+
+:root {
+    --dusk-black: #0a0a0a;
+    --dusk-white: #f5f5f5;
+    --dusk-accent: #00ff88;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--dusk-black);
+    color: var(--dusk-white);
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.terminal {
+    border: 2px solid var(--dusk-accent);
+    padding: 2rem;
+    text-align: center;
+}
+
+.terminal h1 {
+    color: var(--dusk-accent);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.terminal p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Coded by DUSK | Keep it clean */
